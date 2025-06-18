@@ -3,17 +3,17 @@
 ---
 
 ## 📑 Table of Contents
-- [Project Overview](##project-overview)
-- [Key Features](##key-features)
-- [Screenshots](##screenshots)
-- [Installation Guide](##installation-guide)
-- [Usage Instructions](##usage-instructions)
-- [Technology Stack](##technology-stack)
-- [API Documentation](##api-documentation)
-- [Development Roadmap](##development-roadmap)
-- [Contributing](##contributing)
-- [License](##license)
-- [Contact](##contact)
+- [Project Overview](#project-overview)
+- [Key Features](#key-features)
+- [Screenshots](#screenshots)
+- [Installation Guide](#installation-guide)
+- [Usage Instructions](#usage-instructions)
+- [Technology Stack](#technology-stack)
+- [API Documentation](#api-documentation)
+- [Development Roadmap](#development-roadmap)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
 ---
 
@@ -86,7 +86,7 @@ cp .env.example .env
 npm start
 ```
 
-
+---
 
 ## 📘 Usage Instructions
 
@@ -184,13 +184,24 @@ We welcome contributions! Please follow these steps:
    ```bash
    git checkout -b feature/your-feature
    ```
+3. **Make your changes and commit**:
+   ```bash
+   git commit -m "Add your feature description"
+   ```
+4. **Push to your fork**:
+   ```bash
+   git push origin feature/your-feature
+   ```
+5. **Create a Pull Request**
 
-
+---
 
 ## 📄 License
 
 This project is licensed under the **MIT License**.  
 See the [LICENSE](./LICENSE) file for more information.
+
+---
 
 ## 📬 Contact
 
@@ -198,7 +209,6 @@ See the [LICENSE](./LICENSE) file for more information.
 📧 Email: [heyyrj98@gmail.com](mailto:heyyrj98@gmail.com)  
 🐙 GitHub: [@rahul-kumar-1905](https://github.com/rahul-kumar-1905)  
 
-🔗 **Project Link**: [Scatch GitHub Repository](https://github.com/rahul-kumar-1905/scatch)
 
 ---
 

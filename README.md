@@ -1,6 +1,4 @@
-# Scatch - E-commerce Platform for Bags & Backpacks
-
-![Scatch Banner](https://via.placeholder.com/1200x400?text=Scatch+E-commerce+Store)
+# 👜 Scatch - Online Bag & Backpack Store
 
 ---
 

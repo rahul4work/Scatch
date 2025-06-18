@@ -56,9 +56,10 @@
 | Feature            | Preview |
 |--------------------|---------|
 | Authentication     | ![Auth](https://github.com/user-attachments/assets/1f32829a-e9af-4cd1-8c8b-b715cf96d09b) |
-| Product Catalog    | ![Catalog](https://github.com/user-attachments/assets/37e5e2bd-814e-4e38-b091-2f5c3fff5397) |
-| Shopping Cart      | ![Cart](https://github.com/user-attachments/assets/137f2957-cd77-4ced-84d6-871d872ac657) |
-| Admin Dashboard    | ![Admin](https://github.com/user-attachments/assets/2d434146-f3a6-49bf-adb8-081701c7750e) |
+| Product Catalog    | ![Catalog](https://github.com/user-attachments/assets/2364fd4d-02d9-4f7d-8f3a-015499a73b91) |
+| Shopping Cart      | ![Cart](https://github.com/user-attachments/assets/6da9fb68-8645-4ddb-8351-d0b82f1cbf05) |
+| Payment Methods    | ![Payment](https://github.com/user-attachments/assets/12553ac3-e0c7-411c-9579-a3a50da29e8d) |
+| Admin Dashboard    | ![Admin](https://github.com/user-attachments/assets/15a74f63-e693-44dc-bd8c-ff0a24e479f1) |
 
 ---
 
@@ -196,22 +197,10 @@ We welcome contributions! Please follow these steps:
 
 ---
 
-## 📄 License
-
-This project is licensed under the **MIT License**.  
-See the [LICENSE](./LICENSE) file for more information.
-
----
 
 ## 📬 Contact
 
 **👤 Rahul Kumar**  
 📧 Email: [heyyrj98@gmail.com](mailto:heyyrj98@gmail.com)  
-🐙 GitHub: [@rahul-kumar-1905](https://github.com/rahul-kumar-1905)  
+🐙 GitHub: [@rahul-kumar-1905](https://github.com/rahul4work)  
 
-
----
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
-[![GitHub Repo stars](https://img.shields.io/github/stars/rahul-kumar-1905/scatch?style=social)](https://github.com/rahul-kumar-1905/scatch/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/rahul-kumar-1905/scatch?style=social)](https://github.com/rahul-kumar-1905/scatch/network)

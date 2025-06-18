@@ -1,60 +1,130 @@
 <%- include('./partials/header') %>
 
-<% if (success.length > 0) { %>
-    <div class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-blue-500">
-        <span class="inline-block mt-1 mb-1 text-white">
-            <%= success %>
-        </span>
+<% if(success.length>0){ %>
+<div class="fixed top-5 left-1/2 transform -translate-x-1/2 z-50">
+    <div class="bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg animate-fade-in-down">
+        <%= success %>
     </div>
+</div>
 <% } %>
 
-<div class="w-full h-screen flex items-start px-20 py-20">
-    <div class="w-[25%] flex h-screen flex-col items-start">
-        <div class="flex items-center gap-2">
-            <h3>Sort by</h3>
-            <form action="/shop">
-                <select class="border-[1px] px-2 py-1" name="sortby">
-                    <option value="popular">Popular</option>
-                    <option value="newest">Newest</option>
-                </select>
-            </form>
-        </div>
-        <div class="flex flex-col mt-20">
-            <a class="block w-fit mb-2" href="">New Collection</a>
-            <a class="block w-fit mb-2" href="">All Products</a>
-            <a class="block w-fit mb-2" href="">Discounted Products</a>
-        </div>
-        <div class="mt-32">
-            <a class="block w-fit mb-2" href="">Filter by:</a>
-            <a class="block w-fit mb-2" href="">Availability</a>
-            <a class="block w-fit mb-2" href="">Discount</a>
-        </div>
-    </div>
+<div class="container mx-auto px-4 py-8 min-h-screen">
+    <div class="flex flex-col md:flex-row gap-8">
+        <!-- Sidebar Filters -->
+        <div class="w-full md:w-1/4 lg:w-1/5 space-y-8">
+            <div class="bg-white p-4 rounded-lg shadow">
+                <h3 class="font-semibold mb-2">Sort by</h3>
+                <form action="/shop">
+                    <select class="border rounded px-3 py-2 w-full" name="sortby" id="sortby" onchange="this.form.submit()">
+                        <option value="popular">Popular</option>
+                        <option value="newest">Newest</option>
+                    </select>
+                </form>
+            </div>
 
-    <div class="w-[75%] flex flex-col gap-5 h-screen">
-        <div class="flex items-start gap-5">
-            <% if (products && products.length > 0) { %>
+            <div class="bg-white p-4 rounded-lg shadow">
+                <h3 class="font-semibold mb-2">Categories</h3>
+                <div class="space-y-2">
+                    <a class="block text-gray-700 hover:text-blue-600 transition" href="#">New Collection</a>
+                    <a class="block text-gray-700 hover:text-blue-600 transition" href="#">All Products</a>
+                    <a class="block text-gray-700 hover:text-blue-600 transition" href="#">Discounted Products</a>
+                </div>
+            </div>
+
+            <div class="bg-white p-4 rounded-lg shadow">
+                <h3 class="font-semibold mb-2">Filter by</h3>
+                <div class="space-y-2">
+                    <a class="block text-gray-700 hover:text-blue-600 transition" href="#">Availability</a>
+                    <a class="block text-gray-700 hover:text-blue-600 transition" href="#">Discount</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="w-full md:w-3/4 lg:w-4/5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 <% products.forEach(function(product){ %>
-                    <div class="w-60">
-                        <div class="w-full h-52 flex items-center justify-center bg-[<%= product.bgcolor %>]">
-                            <img class="h-[12rem]" src="data:image/jpeg;base64,<%= product.image.toString('base64') %>" alt="Product Image">
-                        </div>
-                        <div class="flex justify-between bg-[<%= product.panelcolor %>] items-center px-4 py-4 text-[<%= product.textcolor %>]">
-                            <div>
-                                <h3><%= product.name %></h3>
-                                <h4>₹ <%= product.price %></h4>
-                            </div>
-                            <a class="w-7 h-7 flex items-center justify-center rounded-full bg-white" href="/addtocart/<%= product._id %>">
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1"
+                     data-id="<%= product._id %>"
+                     data-bgcolor="<%= product.bgcolor %>"
+                     data-panelcolor="<%= product.panelcolor %>"
+                     data-textcolor="<%= product.textcolor %>">
+                    <div class="product-image-container h-60 flex items-center justify-center">
+                        <img class="max-h-full max-w-full object-contain" 
+                             src="data:image/jpeg;base64,<%= product.image.toString('base64') %>" 
+                             alt="<%= product.name %>">
+                    </div>
+                    <div class="product-panel p-4">
+                        <h3 class="font-semibold text-lg mb-1"><%= product.name %></h3>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-medium">₹<%= product.price %></span>
+                            <a class="w-8 h-8 flex items-center justify-center rounded-full bg-white text-black hover:bg-gray-100 transition" 
+                               href="/addtocart/<%= product._id%>">
                                 <i class="ri-add-line"></i>
                             </a>
                         </div>
                     </div>
+                </div>
                 <% }) %>
-            <% } else { %>
-                <p>No products available at the moment.</p>
-            <% } %>
+            </div>
         </div>
     </div>
 </div>
 
 <%- include('./partials/footer') %>
+
+<style>
+    @keyframes fade-in-down {
+        0% {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .animate-fade-in-down {
+        animation: fade-in-down 0.5s ease-out;
+    }
+
+    /* Default styles */
+    .product-image-container {
+        background-color: #f8f9fa;
+    }
+    .product-panel {
+        background-color: #ffffff;
+        color: #000000;
+    }
+</style>
+
+<script>
+    // Apply dynamic styles when the page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        // Apply product-specific colors
+        document.querySelectorAll('.product-card').forEach(card => {
+            const bgColor = card.dataset.bgcolor || '#f8f9fa';
+            const panelColor = card.dataset.panelcolor || '#ffffff';
+            const textColor = card.dataset.textcolor || '#000000';
+            
+            if (card.querySelector('.product-image-container')) {
+                card.querySelector('.product-image-container').style.backgroundColor = bgColor;
+            }
+            if (card.querySelector('.product-panel')) {
+                card.querySelector('.product-panel').style.backgroundColor = panelColor;
+                card.querySelector('.product-panel').style.color = textColor;
+            }
+        });
+
+        // Auto-hide success message after 3 seconds
+        const successMessage = document.querySelector('.fixed.top-5');
+        if (successMessage) {
+            setTimeout(() => {
+                successMessage.style.opacity = '0';
+                setTimeout(() => {
+                    successMessage.remove();
+                }, 500);
+            }, 3000);
+        }
+    });
+</script>

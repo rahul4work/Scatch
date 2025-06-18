@@ -7,9 +7,9 @@ const {
     logout,
 } = require("../controllers/authController");
 
-router.get("/", function (req, res) {
-    res.send("heyy user is working");
-});
+// router.get("/", function (req, res) {
+//     res.send("heyy user is working");
+// });
 
 router.post("/register", registerUser);
 

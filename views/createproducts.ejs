@@ -1,55 +1,151 @@
 <%- include('./partials/header') %>
 
-    <% if (success.length > 0) { %>
-        <div class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-blue-500">
-            <span class="inline-block mt-1 mb-1 text-white">
-                <%= success %>
-            </span>
-        </div>
-    <% } %>
+<% if (typeof success !== 'undefined' && success.length > 0) { %>
+<div class="fixed top-5 left-1/2 transform -translate-x-1/2 z-50">
+    <div class="bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg animate-fade-in-down">
+        <%= success %>
+    </div>
+</div>
+<% } %>
 
-            <div class="min-h-screen flex flex-col">
-                <div class="container px-10 py-20 flex flex-grow">
-                    <div class="w-[25%] flex h-screen flex-col items-start">
-                        <div class="flex flex-col">
-                            <a class="block w-fit mb-2" href="">All Products</a>
-                            <a class="block w-fit mb-2" href="">Create new product</a>
-                        </div>
+<div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row gap-8">
+            <!-- Sidebar -->
+            <div class="w-full md:w-1/4 lg:w-1/5">
+                <div class="bg-white p-4 rounded-lg shadow sticky top-8">
+                    <div class="space-y-3">
+                        <a class="block px-3 py-2 rounded bg-blue-50 text-blue-600 font-medium" href="/shop">All Products</a>
+                        <a class="block px-3 py-2 rounded bg-blue-600 text-white font-medium" href="/products/create">Create new product</a>
                     </div>
-                    <main class="w-3/4 bg-white p-8 shadow ml-4">
-                        <h2 class="text-xl font-bold mb-4">Create New Product</h2>
-                        <form autocomplete="off" action="/products/create" method="post" enctype="multipart/form-data">
-                            <div class="mb-6">
-                                <h3 class="text-lg font-semibold mb-2">Product Details</h3>
-                                <div class="mb-4">
-                                    <label class="block mb-2 font-medium">Product Image</label>
-                                    <input name="image" type="file" class="py-2 px-4 rounded" value="Select File">
-                                </div>
-                                <div class="grid grid-cols-2 gap-4">
-                                    <input name="name" type="text" placeholder="Product Name"
-                                        class="border p-2 rounded w-full">
-                                    <input name="price" type="text" placeholder="Product Price"
-                                        class="border p-2 rounded w-full">
-                                    <input name="discount" type="text" placeholder="Discount Price"
-                                        class="border p-2 rounded w-full">
-                                </div>
-                            </div>
-
-                            <div>
-                                <h3 class="text-lg font-semibold mb-2">Panel Details</h3>
-                                <div class="grid grid-cols-2 gap-4">
-                                    <input name="bgcolor" type="text" placeholder="Background Color"
-                                        class="border p-2 rounded w-full">
-                                    <input name="panelcolor" type="text" placeholder="Panel Color"
-                                        class="border p-2 rounded w-full">
-                                    <input name="textcolor" type="text" placeholder="Text Color"
-                                        class="border p-2 rounded w-full">
-                                </div>
-                            </div>
-                            <input class="px-5 py-2 rounded mt-3 bg-blue-500 text-white" type="submit"
-                                value="Create New Product">
-                        </form>
-                    </main>
                 </div>
             </div>
-            <%- include('./partials/footer') %>
+
+            <!-- Main content -->
+            <div class="w-full md:w-3/4 lg:w-4/5">
+                <div class="bg-white rounded-lg shadow overflow-hidden">
+                    <div class="p-6 border-b">
+                        <h2 class="text-2xl font-bold text-gray-800">Create New Product</h2>
+                    </div>
+
+                    <form autocomplete="off" action="/products/create" method="post" enctype="multipart/form-data" class="p-6">
+                        <!-- Product Details -->
+                        <div class="mb-8">
+                            <h3 class="text-lg font-semibold mb-4 pb-2 border-b">Product Details</h3>
+
+                            <div class="mb-6">
+                                <label class="block text-gray-700 font-medium mb-2">Product Image</label>
+                                <div class="border-2 border-dashed border-gray-300 rounded-lg p-4 text-center">
+                                    <input name="image" type="file" class="hidden" id="fileInput" required>
+                                    <div class="flex flex-col items-center justify-center">
+                                        <svg class="w-12 h-12 text-gray-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                        </svg>
+                                        <p class="text-gray-500 mb-2">Click to upload product image</p>
+                                        <button type="button" onclick="document.getElementById('fileInput').click()" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
+                                            Choose File
+                                        </button>
+                                    </div>
+                                    <span id="fileName" class="text-sm text-gray-500 mt-2 block"></span>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-2">Product Name</label>
+                                    <input name="name" type="text" placeholder="Enter product name" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" required>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-2">Product Price</label>
+                                    <input name="price" type="number" placeholder="Enter price" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" required>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-2">Discount Price</label>
+                                    <input name="discount" type="number" placeholder="Enter discount price" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Panel Details -->
+                        <div>
+                            <h3 class="text-lg font-semibold mb-4 pb-2 border-b">Panel Details</h3>
+
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-2">Background Color</label>
+                                    <div class="flex items-center">
+                                        <input name="bgcolor" type="color" class="w-10 h-10 border rounded cursor-pointer" value="#f8f9fa">
+                                        <input type="text" placeholder="#FFFFFF" class="ml-2 w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-2">Panel Color</label>
+                                    <div class="flex items-center">
+                                        <input name="panelcolor" type="color" class="w-10 h-10 border rounded cursor-pointer" value="#ffffff">
+                                        <input type="text" placeholder="#F5F5F5" class="ml-2 w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-2">Text Color</label>
+                                    <div class="flex items-center">
+                                        <input name="textcolor" type="color" class="w-10 h-10 border rounded cursor-pointer" value="#000000">
+                                        <input type="text" placeholder="#333333" class="ml-2 w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8">
+                            <button type="submit" class="px-6 py-3 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                                Create New Product
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('./partials/footer') %>
+
+<style>
+    @keyframes fade-in-down {
+        0% {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .animate-fade-in-down {
+        animation: fade-in-down 0.5s ease-out;
+    }
+</style>
+
+<script>
+    // File input display
+    document.getElementById('fileInput').addEventListener('change', function(e) {
+        const fileName = document.getElementById('fileName');
+        if (this.files.length > 0) {
+            fileName.textContent = this.files[0].name;
+        } else {
+            fileName.textContent = '';
+        }
+    });
+
+    // Auto-hide success message after 3 seconds
+    document.addEventListener('DOMContentLoaded', function() {
+        const successMessage = document.querySelector('.fixed.top-5');
+        if (successMessage) {
+            setTimeout(() => {
+                successMessage.style.opacity = '0';
+                setTimeout(() => {
+                    successMessage.remove();
+                }, 500);
+            }, 3000);
+        }
+    });
+</script>

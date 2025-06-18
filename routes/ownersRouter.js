@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const ownerModel = require("../models/owner-model");
 
-// Create an owner only if in development mode and no owners exist
 if (process.env.NODE_ENV === "development") {
     router.post("/create", async function (req, res) {
         let owners = await ownerModel.find();
@@ -14,24 +13,14 @@ if (process.env.NODE_ENV === "development") {
 
         let { fullname, email, password } = req.body;
 
-        let createOwner = await ownerModel.create({
+        let createdOwner = await ownerModel.create({
             fullname,
             email,
             password,
         });
 
-        // Set success flash message after owner creation
-        req.flash('success', 'Owner created successfully!');
-
-        // Redirect to the admin page after creating the owner
-        res.redirect('/owners/admin');
+        res.status(201).send(createdOwner);
     });
 }
-
-router.get("/admin", function (req, res) {
-    let success = req.flash("success");
-    res.render("createproducts", {success});
-});
-
 
 module.exports = router;

@@ -3,17 +3,17 @@
 ---
 
 ## 📑 Table of Contents
-- [Project Overview](#project-overview)
-- [Key Features](#key-features)
-- [Screenshots](#screenshots)
-- [Installation Guide](#installation-guide)
-- [Usage Instructions](#usage-instructions)
-- [Technology Stack](#technology-stack)
-- [API Documentation](#api-documentation)
-- [Development Roadmap](#development-roadmap)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+- [Project Overview](##project-overview)
+- [Key Features](##key-features)
+- [Screenshots](##screenshots)
+- [Installation Guide](##installation-guide)
+- [Usage Instructions](##usage-instructions)
+- [Technology Stack](##technology-stack)
+- [API Documentation](##api-documentation)
+- [Development Roadmap](##development-roadmap)
+- [Contributing](##contributing)
+- [License](##license)
+- [Contact](##contact)
 
 ---
 

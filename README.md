@@ -202,5 +202,5 @@ We welcome contributions! Please follow these steps:
 
 **👤 Rahul Kumar**  
 📧 Email: [heyyrj98@gmail.com](mailto:heyyrj98@gmail.com)  
-🐙 GitHub: [@rahul-kumar-1905](https://github.com/rahul4work)  
+🐙 GitHub: [@rahul4work](https://github.com/rahul4work)  
 

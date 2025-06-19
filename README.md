@@ -77,7 +77,7 @@ Scatch now delivers an optimized experience across all device sizes:
 
 ## 🖼️ Screenshots
 
-| Feature            | Desktop Preview | Mobile Preview 1 |                  |
+| Feature            | Desktop Preview | Mobile Preview 1 | Mobile Preview 2 |
 |--------------------|-----------------|------------------|------------------|
 | Authentication     | ![Desktop Auth](https://github.com/user-attachments/assets/1f32829a-e9af-4cd1-8c8b-b715cf96d09b) | ![Mobile Auth 1](https://github.com/user-attachments/assets/807877f7-605c-4ab3-861a-a46b3e2d83a6) | ![Mobile Auth 2](https://github.com/user-attachments/assets/ca5a24ce-ac8c-4ff4-acc6-c29710a63edc) |
 | Product Catalog    | ![Desktop Catalog](https://github.com/user-attachments/assets/2364fd4d-02d9-4f7d-8f3a-015499a73b91) | ![Mobile Catalog](https://github.com/user-attachments/assets/54f57c86-84f1-47cc-8b6f-d3a8cd546c56) | - |

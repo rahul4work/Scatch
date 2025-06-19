@@ -77,13 +77,13 @@ Scatch now delivers an optimized experience across all device sizes:
 
 ## 🖼️ Screenshots
 
-| Feature            | Desktop Preview | Mobile Preview |
-|--------------------|-----------------|----------------|
-| Authentication     | ![Desktop Auth](https://github.com/user-attachments/assets/1f32829a-e9af-4cd1-8c8b-b715cf96d09b) | ![Mobile Auth](https://github.com/user-attachments/assets/807877f7-605c-4ab3-861a-a46b3e2d83a6) ![Screenshot 2025-06-19 152001](https://github.com/user-attachments/assets/ca5a24ce-ac8c-4ff4-acc6-c29710a63edc) |
-| Product Catalog    | ![Desktop Catalog](https://github.com/user-attachments/assets/2364fd4d-02d9-4f7d-8f3a-015499a73b91) | ![Mobile Catalog](https://github.com/user-attachments/assets/54f57c86-84f1-47cc-8b6f-d3a8cd546c56) |
-| Shopping Cart      | ![Desktop Cart](https://github.com/user-attachments/assets/6da9fb68-8645-4ddb-8351-d0b82f1cbf05) | ![Mobile Cart](https://github.com/user-attachments/assets/9d63c1a6-e5b8-4271-9de4-157567e724fc) ![Screenshot 2025-06-19 152105](https://github.com/user-attachments/assets/0a16d037-a4e3-48e2-8109-7d7e01b42c48) |
-| Payment Methods    | ![Desktop Payment](https://github.com/user-attachments/assets/12553ac3-e0c7-411c-9579-a3a50da29e8d) | ![Mobile Payment](https://github.com/user-attachments/assets/48b1269f-1fbc-44ac-8e44-660dfdda5151) |
-| Admin Dashboard    | ![Desktop Admin](https://github.com/user-attachments/assets/15a74f63-e693-44dc-bd8c-ff0a24e479f1) | ![Mobile Admin](https://github.com/user-attachments/assets/f1fa9fee-7667-45b6-8b0c-40d8847c567e) ![Screenshot 2025-06-19 152521](https://github.com/user-attachments/assets/83c9962d-755c-42a3-b945-5094917a9b2b) |
+| Feature            | Desktop Preview | Mobile Preview 1 |                  |
+|--------------------|-----------------|------------------|------------------|
+| Authentication     | ![Desktop Auth](https://github.com/user-attachments/assets/1f32829a-e9af-4cd1-8c8b-b715cf96d09b) | ![Mobile Auth 1](https://github.com/user-attachments/assets/807877f7-605c-4ab3-861a-a46b3e2d83a6) | ![Mobile Auth 2](https://github.com/user-attachments/assets/ca5a24ce-ac8c-4ff4-acc6-c29710a63edc) |
+| Product Catalog    | ![Desktop Catalog](https://github.com/user-attachments/assets/2364fd4d-02d9-4f7d-8f3a-015499a73b91) | ![Mobile Catalog](https://github.com/user-attachments/assets/54f57c86-84f1-47cc-8b6f-d3a8cd546c56) | - |
+| Shopping Cart      | ![Desktop Cart](https://github.com/user-attachments/assets/6da9fb68-8645-4ddb-8351-d0b82f1cbf05) | ![Mobile Cart 1](https://github.com/user-attachments/assets/9d63c1a6-e5b8-4271-9de4-157567e724fc) | ![Mobile Cart 2](https://github.com/user-attachments/assets/0a16d037-a4e3-48e2-8109-7d7e01b42c48) |
+| Payment Methods    | ![Desktop Payment](https://github.com/user-attachments/assets/12553ac3-e0c7-411c-9579-a3a50da29e8d) | ![Mobile Payment](https://github.com/user-attachments/assets/48b1269f-1fbc-44ac-8e44-660dfdda5151) | - |
+| Admin Dashboard    | ![Desktop Admin](https://github.com/user-attachments/assets/15a74f63-e693-44dc-bd8c-ff0a24e479f1) | ![Mobile Admin 1](https://github.com/user-attachments/assets/f1fa9fee-7667-45b6-8b0c-40d8847c567e) | ![Mobile Admin 2](https://github.com/user-attachments/assets/83c9962d-755c-42a3-b945-5094917a9b2b) |
 
 ---
 

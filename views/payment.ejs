@@ -1,138 +1,138 @@
 <%- include('./partials/header') %>
-<div class="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
+<div class="min-h-screen bg-gray-50 py-4 px-4 sm:py-8 sm:px-6 lg:px-8">
     <div class="max-w-3xl mx-auto">
         <!-- Order Summary -->
-        <div class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
-            <div class="p-6 border-b border-gray-200">
-                <h2 class="text-xl font-semibold text-gray-800">Order Summary</h2>
+        <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6 sm:mb-8">
+            <div class="p-4 sm:p-6 border-b border-gray-200">
+                <h2 class="text-lg sm:text-xl font-semibold text-gray-800">Order Summary</h2>
             </div>
-            <div class="p-6">
-                <div class="flex justify-between mb-4">
+            <div class="p-4 sm:p-6">
+                <div class="flex justify-between mb-3 sm:mb-4 text-sm sm:text-base">
                     <span class="text-gray-600">Subtotal (<%= cartCount %> items)</span>
                     <span class="font-medium">₹<%= subtotal.toLocaleString() %></span>
                 </div>
-                <div class="flex justify-between mb-4">
+                <div class="flex justify-between mb-3 sm:mb-4 text-sm sm:text-base">
                     <span class="text-gray-600">Discount</span>
                     <span class="text-green-600">-₹<%= discount.toLocaleString() %></span>
                 </div>
-                <div class="flex justify-between mb-4">
+                <div class="flex justify-between mb-3 sm:mb-4 text-sm sm:text-base">
                     <span class="text-gray-600">Delivery</span>
                     <span class="text-green-600">FREE</span>
                 </div>
-                <div class="flex justify-between border-t border-gray-200 pt-4">
-                    <span class="text-lg font-semibold">Total Amount</span>
-                    <span class="text-lg font-semibold">₹<%= (subtotal - discount).toLocaleString() %></span>
+                <div class="flex justify-between border-t border-gray-200 pt-3 sm:pt-4 text-base sm:text-lg">
+                    <span class="font-semibold">Total Amount</span>
+                    <span class="font-semibold">₹<%= (subtotal - discount).toLocaleString() %></span>
                 </div>
             </div>
         </div>
 
         <!-- Payment Methods -->
         <div class="bg-white rounded-lg shadow-md overflow-hidden">
-            <div class="p-6 border-b border-gray-200">
-                <h2 class="text-xl font-semibold text-gray-800">Choose Payment Method</h2>
+            <div class="p-4 sm:p-6 border-b border-gray-200">
+                <h2 class="text-lg sm:text-xl font-semibold text-gray-800">Choose Payment Method</h2>
             </div>
 
             <!-- UPI Payment -->
-            <div class="p-6 border-b border-gray-200">
-                <div class="flex items-center justify-between mb-4">
+            <div class="p-4 sm:p-6 border-b border-gray-200">
+                <div class="flex items-center justify-between mb-3 sm:mb-4">
                     <div class="flex items-center">
-                        <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mr-3">
-                            <i class="ri-money-dollar-circle-line text-blue-600 text-xl"></i>
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-blue-100 flex items-center justify-center mr-2 sm:mr-3">
+                            <i class="ri-money-dollar-circle-line text-blue-600 text-lg sm:text-xl"></i>
                         </div>
-                        <span class="font-medium">UPI Payment</span>
+                        <span class="text-sm sm:text-base font-medium">UPI Payment</span>
                     </div>
-                    <input type="radio" name="paymentMethod" value="upi" checked class="h-5 w-5 text-indigo-600">
+                    <input type="radio" name="paymentMethod" value="upi" checked class="h-4 w-4 sm:h-5 sm:w-5 text-indigo-600">
                 </div>
                 
-                <div id="upiSection" class="mt-4 pl-13">
-                    <div class="grid grid-cols-2 gap-4 mb-4">
-                        <button type="button" class="flex items-center justify-center p-3 border border-gray-300 rounded-md hover:border-indigo-500">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Google_Pay_Logo.svg/2560px-Google_Pay_Logo.svg.png" alt="Google Pay" class="h-6">
+                <div id="upiSection" class="mt-3 sm:mt-4 pl-10 sm:pl-13">
+                    <div class="grid grid-cols-2 gap-3 sm:gap-4 mb-3 sm:mb-4">
+                        <button type="button" class="flex items-center justify-center p-2 sm:p-3 border border-gray-300 rounded-md hover:border-indigo-500">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Google_Pay_Logo.svg/2560px-Google_Pay_Logo.svg.png" alt="Google Pay" class="h-5 sm:h-6">
                         </button>
-                        <button type="button" class="flex items-center justify-center p-3 border border-gray-300 rounded-md hover:border-indigo-500">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Paytm_logo.png/640px-Paytm_logo.png" alt="Paytm" class="h-6">
+                        <button type="button" class="flex items-center justify-center p-2 sm:p-3 border border-gray-300 rounded-md hover:border-indigo-500">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Paytm_logo.png/640px-Paytm_logo.png" alt="Paytm" class="h-5 sm:h-6">
                         </button>
-                        <button type="button" class="flex items-center justify-center p-3 border border-gray-300 rounded-md hover:border-indigo-500">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/PhonePe_Logo.svg/2560px-PhonePe_Logo.svg.png" alt="PhonePe" class="h-6">
+                        <button type="button" class="flex items-center justify-center p-2 sm:p-3 border border-gray-300 rounded-md hover:border-indigo-500">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/PhonePe_Logo.svg/2560px-PhonePe_Logo.svg.png" alt="PhonePe" class="h-5 sm:h-6">
                         </button>
-                        <button type="button" class="flex items-center justify-center p-3 border border-gray-300 rounded-md hover:border-indigo-500">
-                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/65/BHIM_SVG_Logo.svg/2560px-BHIM_SVG_Logo.svg.png" alt="BHIM" class="h-6">
+                        <button type="button" class="flex items-center justify-center p-2 sm:p-3 border border-gray-300 rounded-md hover:border-indigo-500">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/65/BHIM_SVG_Logo.svg/2560px-BHIM_SVG_Logo.svg.png" alt="BHIM" class="h-5 sm:h-6">
                         </button>
                     </div>
                     
-                    <div class="mb-4">
-                        <label for="upiId" class="block text-sm font-medium text-gray-700 mb-1">Enter UPI ID</label>
-                        <input type="text" id="upiId" name="upiId" placeholder="yourname@upi" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+                    <div class="mb-3 sm:mb-4">
+                        <label for="upiId" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Enter UPI ID</label>
+                        <input type="text" id="upiId" name="upiId" placeholder="yourname@upi" class="w-full px-3 py-2 sm:px-4 sm:py-2 text-sm border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
                     </div>
                     
-                    <button type="button" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    <button type="button" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 text-sm sm:text-base">
                         Pay via UPI
                     </button>
                 </div>
             </div>
 
             <!-- Credit/Debit Cards -->
-            <div class="p-6 border-b border-gray-200">
-                <div class="flex items-center justify-between mb-4">
+            <div class="p-4 sm:p-6 border-b border-gray-200">
+                <div class="flex items-center justify-between mb-3 sm:mb-4">
                     <div class="flex items-center">
-                        <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center mr-3">
-                            <i class="ri-bank-card-line text-purple-600 text-xl"></i>
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-purple-100 flex items-center justify-center mr-2 sm:mr-3">
+                            <i class="ri-bank-card-line text-purple-600 text-lg sm:text-xl"></i>
                         </div>
-                        <span class="font-medium">Credit/Debit Card</span>
+                        <span class="text-sm sm:text-base font-medium">Credit/Debit Card</span>
                     </div>
-                    <input type="radio" name="paymentMethod" value="card" class="h-5 w-5 text-indigo-600">
+                    <input type="radio" name="paymentMethod" value="card" class="h-4 w-4 sm:h-5 sm:w-5 text-indigo-600">
                 </div>
                 
-                <div id="cardSection" class="mt-4 pl-13 hidden">
-                    <div class="mb-4">
-                        <label for="cardNumber" class="block text-sm font-medium text-gray-700 mb-1">Card Number</label>
-                        <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+                <div id="cardSection" class="mt-3 sm:mt-4 pl-10 sm:pl-13 hidden">
+                    <div class="mb-3 sm:mb-4">
+                        <label for="cardNumber" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Card Number</label>
+                        <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" class="w-full px-3 py-2 sm:px-4 sm:py-2 text-sm border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
                     </div>
                     
-                    <div class="grid grid-cols-2 gap-4 mb-4">
+                    <div class="grid grid-cols-2 gap-3 sm:gap-4 mb-3 sm:mb-4">
                         <div>
-                            <label for="expiryDate" class="block text-sm font-medium text-gray-700 mb-1">Expiry Date</label>
-                            <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+                            <label for="expiryDate" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Expiry Date</label>
+                            <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" class="w-full px-3 py-2 sm:px-4 sm:py-2 text-sm border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
                         </div>
                         <div>
-                            <label for="cvv" class="block text-sm font-medium text-gray-700 mb-1">CVV</label>
-                            <input type="text" id="cvv" name="cvv" placeholder="123" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+                            <label for="cvv" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1">CVV</label>
+                            <input type="text" id="cvv" name="cvv" placeholder="123" class="w-full px-3 py-2 sm:px-4 sm:py-2 text-sm border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
                         </div>
                     </div>
                     
-                    <div class="flex items-center mb-4">
+                    <div class="flex items-center mb-3 sm:mb-4">
                         <input type="checkbox" id="saveCard" name="saveCard" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
-                        <label for="saveCard" class="ml-2 block text-sm text-gray-700">Save card for future payments</label>
+                        <label for="saveCard" class="ml-2 block text-xs sm:text-sm text-gray-700">Save card for future payments</label>
                     </div>
                     
-                    <div class="flex space-x-2 mb-4">
-                        <img src="https://cdn4.iconfinder.com/data/icons/flat-brand-logo-2/512/visa-512.png" alt="Visa" class="h-8">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="Mastercard" class="h-8">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Rupay-Logo.png" alt="RuPay" class="h-8">
-                        <img src="https://www.pngplay.com/wp-content/uploads/5/American-Express-Logo-Download-Free-PNG.png" alt="Amex" class="h-8">
+                    <div class="flex flex-wrap gap-2 mb-3 sm:mb-4">
+                        <img src="https://cdn4.iconfinder.com/data/icons/flat-brand-logo-2/512/visa-512.png" alt="Visa" class="h-6 sm:h-8">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="Mastercard" class="h-6 sm:h-8">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Rupay-Logo.png" alt="RuPay" class="h-6 sm:h-8">
+                        <img src="https://www.pngplay.com/wp-content/uploads/5/American-Express-Logo-Download-Free-PNG.png" alt="Amex" class="h-6 sm:h-8">
                     </div>
                     
-                    <button type="button" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    <button type="button" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 text-sm sm:text-base">
                         Pay with Card
                     </button>
                 </div>
             </div>
 
             <!-- Net Banking -->
-            <div class="p-6 border-b border-gray-200">
-                <div class="flex items-center justify-between mb-4">
+            <div class="p-4 sm:p-6 border-b border-gray-200">
+                <div class="flex items-center justify-between mb-3 sm:mb-4">
                     <div class="flex items-center">
-                        <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center mr-3">
-                            <i class="ri-bank-line text-green-600 text-xl"></i>
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-green-100 flex items-center justify-center mr-2 sm:mr-3">
+                            <i class="ri-bank-line text-green-600 text-lg sm:text-xl"></i>
                         </div>
-                        <span class="font-medium">Net Banking</span>
+                        <span class="text-sm sm:text-base font-medium">Net Banking</span>
                     </div>
-                    <input type="radio" name="paymentMethod" value="netbanking" class="h-5 w-5 text-indigo-600">
+                    <input type="radio" name="paymentMethod" value="netbanking" class="h-4 w-4 sm:h-5 sm:w-5 text-indigo-600">
                 </div>
                 
-                <div id="netbankingSection" class="mt-4 pl-13 hidden">
-                    <label for="bankSelect" class="block text-sm font-medium text-gray-700 mb-1">Select Bank</label>
-                    <select id="bankSelect" name="bankSelect" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 mb-4">
+                <div id="netbankingSection" class="mt-3 sm:mt-4 pl-10 sm:pl-13 hidden">
+                    <label for="bankSelect" class="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Select Bank</label>
+                    <select id="bankSelect" name="bankSelect" class="w-full px-3 py-2 sm:px-4 sm:py-2 text-sm border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 mb-3 sm:mb-4">
                         <option value="">Select your bank</option>
                         <option value="sbi">State Bank of India</option>
                         <option value="hdfc">HDFC Bank</option>
@@ -143,57 +143,57 @@
                         <option value="yes">Yes Bank</option>
                     </select>
                     
-                    <button type="button" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    <button type="button" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 text-sm sm:text-base">
                         Pay via Net Banking
                     </button>
                 </div>
             </div>
 
             <!-- Wallets -->
-            <div class="p-6 border-b border-gray-200">
-                <div class="flex items-center justify-between mb-4">
+            <div class="p-4 sm:p-6 border-b border-gray-200">
+                <div class="flex items-center justify-between mb-3 sm:mb-4">
                     <div class="flex items-center">
-                        <div class="w-10 h-10 rounded-full bg-yellow-100 flex items-center justify-center mr-3">
-                            <i class="ri-wallet-3-line text-yellow-600 text-xl"></i>
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-yellow-100 flex items-center justify-center mr-2 sm:mr-3">
+                            <i class="ri-wallet-3-line text-yellow-600 text-lg sm:text-xl"></i>
                         </div>
-                        <span class="font-medium">Wallets</span>
+                        <span class="text-sm sm:text-base font-medium">Wallets</span>
                     </div>
-                    <input type="radio" name="paymentMethod" value="wallet" class="h-5 w-5 text-indigo-600">
+                    <input type="radio" name="paymentMethod" value="wallet" class="h-4 w-4 sm:h-5 sm:w-5 text-indigo-600">
                 </div>
                 
-                <div id="walletSection" class="mt-4 pl-13 hidden">
-                    <div class="grid grid-cols-2 gap-4 mb-4">
-                        <button type="button" class="flex items-center justify-center p-3 border border-gray-300 rounded-md hover:border-indigo-500">
-                            <img src="https://www.shutterstock.com/image-vector/google-pay-wallet-popular-payment-260nw-2408714787.jpg" alt="Gpay Wallet" class="h-6">
+                <div id="walletSection" class="mt-3 sm:mt-4 pl-10 sm:pl-13 hidden">
+                    <div class="grid grid-cols-2 gap-3 sm:gap-4 mb-3 sm:mb-4">
+                        <button type="button" class="flex items-center justify-center p-2 sm:p-3 border border-gray-300 rounded-md hover:border-indigo-500">
+                            <img src="https://www.shutterstock.com/image-vector/google-pay-wallet-popular-payment-260nw-2408714787.jpg" alt="Gpay Wallet" class="h-5 sm:h-6">
                         </button>
-                        <button type="button" class="flex items-center justify-center p-3 border border-gray-300 rounded-md hover:border-indigo-500">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwxyPdZBNfx-ulubSDlBHlSpVjl6x3Rs2Lzw&s" alt="Amazon Pay" class="h-6">
+                        <button type="button" class="flex items-center justify-center p-2 sm:p-3 border border-gray-300 rounded-md hover:border-indigo-500">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwxyPdZBNfx-ulubSDlBHlSpVjl6x3Rs2Lzw&s" alt="Amazon Pay" class="h-5 sm:h-6">
                         </button>
-                        <button type="button" class="flex items-center justify-center p-3 border border-gray-300 rounded-md hover:border-indigo-500">
-                            <img src="https://logos-download.com/wp-content/uploads/2020/06/MobiKwik_Logo.png" alt="MobiKwik" class="h-6">
+                        <button type="button" class="flex items-center justify-center p-2 sm:p-3 border border-gray-300 rounded-md hover:border-indigo-500">
+                            <img src="https://logos-download.com/wp-content/uploads/2020/06/MobiKwik_Logo.png" alt="MobiKwik" class="h-5 sm:h-6">
                         </button>
-                        <button type="button" class="flex items-center justify-center p-3 border border-gray-300 rounded-md hover:border-indigo-500">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/90/FreeCharge_Logo.png" alt="FreeCharge" class="h-6">
+                        <button type="button" class="flex items-center justify-center p-2 sm:p-3 border border-gray-300 rounded-md hover:border-indigo-500">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/90/FreeCharge_Logo.png" alt="FreeCharge" class="h-5 sm:h-6">
                         </button>
                     </div>
                 </div>
             </div>
 
             <!-- Cash on Delivery -->
-            <div class="p-6">
-                <div class="flex items-center justify-between mb-4">
+            <div class="p-4 sm:p-6">
+                <div class="flex items-center justify-between mb-3 sm:mb-4">
                     <div class="flex items-center">
-                        <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center mr-3">
-                            <i class="ri-hand-coin-line text-red-600 text-xl"></i>
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-red-100 flex items-center justify-center mr-2 sm:mr-3">
+                            <i class="ri-hand-coin-line text-red-600 text-lg sm:text-xl"></i>
                         </div>
-                        <span class="font-medium">Cash on Delivery (COD)</span>
+                        <span class="text-sm sm:text-base font-medium">Cash on Delivery (COD)</span>
                     </div>
-                    <input type="radio" name="paymentMethod" value="cod" class="h-5 w-5 text-indigo-600">
+                    <input type="radio" name="paymentMethod" value="cod" class="h-4 w-4 sm:h-5 sm:w-5 text-indigo-600">
                 </div>
                 
-                <div id="codSection" class="mt-4 pl-13 hidden">
-                    <p class="text-sm text-gray-500 mb-4">Pay cash when your order is delivered. Extra ₹50 COD charge may apply.</p>
-                    <button type="button" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                <div id="codSection" class="mt-3 sm:mt-4 pl-10 sm:pl-13 hidden">
+                    <p class="text-xs sm:text-sm text-gray-500 mb-3 sm:mb-4">Pay cash when your order is delivered. Extra ₹50 COD charge may apply.</p>
+                    <button type="button" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 text-sm sm:text-base">
                         Place COD Order
                     </button>
                 </div>
@@ -201,8 +201,8 @@
         </div>
 
         <!-- Back to Cart Button -->
-        <div class="mt-6">
-            <a href="/cart" class="flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
+        <div class="mt-4 sm:mt-6">
+            <a href="/cart" class="flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-xs sm:text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
                 <i class="ri-arrow-left-line mr-2"></i> Back to Cart
             </a>
         </div>

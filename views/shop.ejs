@@ -1,66 +1,94 @@
 <%- include('./partials/header') %>
 
 <% if(success.length>0){ %>
-<div class="fixed top-5 left-1/2 transform -translate-x-1/2 z-50">
-    <div class="bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg animate-fade-in-down">
+<div class="fixed top-5 left-1/2 transform -translate-x-1/2 z-50 px-4 w-full max-w-sm">
+    <div class="bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg animate-fade-in-down text-center text-sm md:text-base">
         <%= success %>
     </div>
 </div>
 <% } %>
 
-<div class="container mx-auto px-4 py-8 min-h-screen">
-    <div class="flex flex-col md:flex-row gap-8">
+<div class="container mx-auto px-2 sm:px-4 py-4 md:py-8 min-h-screen">
+    <!-- Mobile Filter Toggle Button -->
+    <div class="md:hidden mb-4">
+        <button id="mobile-filter-toggle" class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg flex items-center justify-center gap-2">
+            <i class="ri-filter-line"></i>
+            <span>Filters & Sort</span>
+        </button>
+    </div>
+
+    <div class="flex flex-col md:flex-row gap-4 md:gap-8">
         <!-- Sidebar Filters -->
-        <div class="w-full md:w-1/4 lg:w-1/5 space-y-8">
-            <div class="bg-white p-4 rounded-lg shadow">
-                <h3 class="font-semibold mb-2">Sort by</h3>
+        <div id="sidebar-filters" class="w-full md:w-1/4 lg:w-1/5 space-y-4 md:space-y-8 hidden md:block">
+            <div class="bg-white p-3 md:p-4 rounded-lg shadow">
+                <h3 class="font-semibold mb-2 text-sm md:text-base">Sort by</h3>
                 <form action="/shop">
-                    <select class="border rounded px-3 py-2 w-full" name="sortby" id="sortby" onchange="this.form.submit()">
+                    <select class="border rounded px-2 md:px-3 py-2 w-full text-sm md:text-base" name="sortby" id="sortby" onchange="this.form.submit()">
                         <option value="popular">Popular</option>
                         <option value="newest">Newest</option>
                     </select>
                 </form>
             </div>
 
-            <div class="bg-white p-4 rounded-lg shadow">
-                <h3 class="font-semibold mb-2">Categories</h3>
+            <div class="bg-white p-3 md:p-4 rounded-lg shadow">
+                <h3 class="font-semibold mb-2 text-sm md:text-base">Categories</h3>
                 <div class="space-y-2">
-                    <a class="block text-gray-700 hover:text-blue-600 transition" href="#">New Collection</a>
-                    <a class="block text-gray-700 hover:text-blue-600 transition" href="#">All Products</a>
-                    <a class="block text-gray-700 hover:text-blue-600 transition" href="#">Discounted Products</a>
+                    <a class="block text-gray-700 hover:text-blue-600 transition text-sm md:text-base" href="#">New Collection</a>
+                    <a class="block text-gray-700 hover:text-blue-600 transition text-sm md:text-base" href="#">All Products</a>
+                    <a class="block text-gray-700 hover:text-blue-600 transition text-sm md:text-base" href="#">Discounted Products</a>
                 </div>
             </div>
 
-            <div class="bg-white p-4 rounded-lg shadow">
-                <h3 class="font-semibold mb-2">Filter by</h3>
+            <div class="bg-white p-3 md:p-4 rounded-lg shadow">
+                <h3 class="font-semibold mb-2 text-sm md:text-base">Filter by</h3>
                 <div class="space-y-2">
-                    <a class="block text-gray-700 hover:text-blue-600 transition" href="#">Availability</a>
-                    <a class="block text-gray-700 hover:text-blue-600 transition" href="#">Discount</a>
+                    <a class="block text-gray-700 hover:text-blue-600 transition text-sm md:text-base" href="#">Availability</a>
+                    <a class="block text-gray-700 hover:text-blue-600 transition text-sm md:text-base" href="#">Discount</a>
                 </div>
+            </div>
+
+            <!-- Close button for mobile -->
+            <div class="md:hidden">
+                <button id="close-filters" class="w-full bg-gray-500 text-white py-2 px-4 rounded-lg">
+                    Close Filters
+                </button>
             </div>
         </div>
 
         <!-- Products Grid -->
         <div class="w-full md:w-3/4 lg:w-4/5">
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Products count and view toggle (mobile) -->
+            <div class="flex justify-between items-center mb-4">
+                <span class="text-sm text-gray-600"><%= products.length %> products</span>
+                <div class="md:hidden flex gap-2">
+                    <button id="grid-view" class="p-2 bg-blue-500 text-white rounded active-view">
+                        <i class="ri-grid-line"></i>
+                    </button>
+                    <button id="list-view" class="p-2 bg-gray-300 text-gray-600 rounded">
+                        <i class="ri-list-check"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="products-container" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-4 md:gap-6">
                 <% products.forEach(function(product){ %>
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1"
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
                      data-id="<%= product._id %>"
                      data-bgcolor="<%= product.bgcolor %>"
                      data-panelcolor="<%= product.panelcolor %>"
                      data-textcolor="<%= product.textcolor %>">
-                    <div class="product-image-container h-60 flex items-center justify-center">
-                        <img class="max-h-full max-w-full object-contain" 
+                    <div class="product-image-container h-32 sm:h-40 md:h-48 lg:h-60 flex items-center justify-center">
+                        <img class="max-h-full max-w-full object-contain p-2" 
                              src="data:image/jpeg;base64,<%= product.image.toString('base64') %>" 
                              alt="<%= product.name %>">
                     </div>
-                    <div class="product-panel p-4">
-                        <h3 class="font-semibold text-lg mb-1"><%= product.name %></h3>
+                    <div class="product-panel p-2 sm:p-3 md:p-4">
+                        <h3 class="font-semibold text-xs sm:text-sm md:text-lg mb-1 line-clamp-2"><%= product.name %></h3>
                         <div class="flex justify-between items-center">
-                            <span class="text-lg font-medium">₹<%= product.price %></span>
-                            <a class="w-8 h-8 flex items-center justify-center rounded-full bg-white text-black hover:bg-gray-100 transition" 
+                            <span class="text-sm sm:text-base md:text-lg font-medium">₹<%= product.price %></span>
+                            <a class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 flex items-center justify-center rounded-full bg-white text-black hover:bg-gray-100 transition border border-gray-200" 
                                href="/addtocart/<%= product._id%>">
-                                <i class="ri-add-line"></i>
+                                <i class="ri-add-line text-sm md:text-base"></i>
                             </a>
                         </div>
                     </div>
@@ -96,6 +124,68 @@
         background-color: #ffffff;
         color: #000000;
     }
+
+    /* Line clamp for product names */
+    .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    /* Mobile filter overlay */
+    @media (max-width: 768px) {
+        #sidebar-filters.show {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 40;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        #sidebar-filters.show > div {
+            background: white;
+            margin-bottom: 1rem;
+        }
+    }
+
+    /* List view styles for mobile */
+    .list-view .product-card {
+        display: flex;
+        flex-direction: row;
+        height: auto;
+    }
+    
+    .list-view .product-image-container {
+        width: 100px;
+        min-width: 100px;
+        height: 100px;
+    }
+    
+    .list-view .product-panel {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .active-view {
+        background-color: #3b82f6 !important;
+        color: white !important;
+    }
+
+    /* Improved mobile touch targets */
+    @media (max-width: 640px) {
+        .product-card a {
+            min-width: 32px;
+            min-height: 32px;
+        }
+    }
 </style>
 
 <script>
@@ -125,6 +215,55 @@
                     successMessage.remove();
                 }, 500);
             }, 3000);
+        }
+
+        // Mobile filter toggle
+        const filterToggle = document.getElementById('mobile-filter-toggle');
+        const sidebarFilters = document.getElementById('sidebar-filters');
+        const closeFilters = document.getElementById('close-filters');
+
+        if (filterToggle) {
+            filterToggle.addEventListener('click', function() {
+                sidebarFilters.classList.add('show');
+            });
+        }
+
+        if (closeFilters) {
+            closeFilters.addEventListener('click', function() {
+                sidebarFilters.classList.remove('show');
+            });
+        }
+
+        // Close filters when clicking overlay
+        if (sidebarFilters) {
+            sidebarFilters.addEventListener('click', function(e) {
+                if (e.target === sidebarFilters) {
+                    sidebarFilters.classList.remove('show');
+                }
+            });
+        }
+
+        // View toggle functionality (mobile)
+        const gridViewBtn = document.getElementById('grid-view');
+        const listViewBtn = document.getElementById('list-view');
+        const productsContainer = document.getElementById('products-container');
+
+        if (gridViewBtn && listViewBtn) {
+            gridViewBtn.addEventListener('click', function() {
+                productsContainer.className = 'grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-4 md:gap-6';
+                gridViewBtn.classList.add('active-view', 'bg-blue-500', 'text-white');
+                gridViewBtn.classList.remove('bg-gray-300', 'text-gray-600');
+                listViewBtn.classList.remove('active-view', 'bg-blue-500', 'text-white');
+                listViewBtn.classList.add('bg-gray-300', 'text-gray-600');
+            });
+
+            listViewBtn.addEventListener('click', function() {
+                productsContainer.className = 'list-view space-y-2';
+                listViewBtn.classList.add('active-view', 'bg-blue-500', 'text-white');
+                listViewBtn.classList.remove('bg-gray-300', 'text-gray-600');
+                gridViewBtn.classList.remove('active-view', 'bg-blue-500', 'text-white');
+                gridViewBtn.classList.add('bg-gray-300', 'text-gray-600');
+            });
         }
     });
 </script>
